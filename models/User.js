@@ -21,12 +21,13 @@ User.create = async (newUser) => {
 
 User.authenticateKey = async (apikey) => {
   await mongoClient.connect();
-  console.log('Connected successfully to database (MongoDB)');
   const db = mongoClient.db('products');
   const collection = db.collection('users');
   const query = { "apiKey": apikey };
-  const apiKeyExists = await collection.count(query);
-  return apiKeyExists;
+  console.log('Buscando apikey:', apikey);
+  const apiKeyExists = await collection.countDocuments(query);
+  console.log('Resultado count:', apiKeyExists);
+  return apiKeyExists > 0;
 }
 
 // User.authenticateKey = (apiKey) => {
