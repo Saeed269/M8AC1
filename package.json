@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:css": "sass ./views/styles/main.scss ./views/styles/styles.css",
+    "build": "npm install && npm run build:css"
   },
   "author": "",
   "license": "ISC",
@@ -13,5 +15,8 @@
     "mongodb": "^4.14.0",
     "pug": "^3.0.2",
     "slugify": "^1.6.8"
+  },
+  "devDependencies": {
+    "sass": "^1.98.0"
   }
 }
