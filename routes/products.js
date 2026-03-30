@@ -8,7 +8,7 @@ const getProducts = require('../controllers/api/getProducts')
 const getProduct = require('../controllers/api/getProduct')
 const createProduct = require('../controllers/api/createProduct')
 const updateProduct = require('../controllers/api/updateProduct')
-// const deleteProduct = require('../controllers/api/deleteProduct')
+const deleteProduct = require('../controllers/api/deleteProduct')
 const createUser = require('../controllers/users/createUser')
 
 router.get('/api', renderHome)
@@ -16,7 +16,7 @@ router.get('/api/products', auth.authenticateKey, getProducts)
 router.get('/api/products/:productID', auth.authenticateKey, getProduct)
 router.post('/api/products', auth.authenticateKey, createProduct) 
 router.put('/api/products/:productID', auth.authenticateKey, updateProduct) 
-// router.delete('/:productID', deleteProduct)
+router.delete('/api/products/:productID', auth.authenticateKey, deleteProduct)
 router.post('/users/register', createUser)
 
 module.exports = router
