@@ -8,7 +8,7 @@ const app = express()
 //Server configuration: template engine
 app.set('views', './views');
 app.set('view engine', 'pug');
-app.use(express.static('/views'));
+app.use(express.static('views'));
 
 //Midleware
 app.use(express.json())
